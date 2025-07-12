@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scanning...</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: black;
+      color: lime;
+      font-family: 'Courier New', monospace;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+    #scanner {
+      font-size: 1.5rem;
+      white-space: pre-line;
+      text-align: center;
+    }
+    #proceedBtn {
+      display: none;
+      margin-top: 2rem;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border: none;
+      background-color: lime;
+      color: black;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div id="scanner"></div>
+  <button id="proceedBtn" onclick="window.location.href='message.html'">Proceed</button>
+
+  <script>
+    const scanner = document.getElementById("scanner");
+    const proceedBtn = document.getElementById("proceedBtn");
+
+    const messages = [
+      "Initializing scan...",
+      "Analyzing face...",
+      "Detecting beauty level...",
+      "Beauty level: 92%",
+      "Refining...",
+      "Beauty level: 98%",
+      "Name match found...",
+      "AFREEN SHAZANA 💖",
+      "Authentic beauty detected...",
+      "Unlocking surprise..."
+    ];
+
+    let i = 0;
+    function showNextLine() {
+      if (i < messages.length) {
+        scanner.innerText += messages[i] + "\n";
+        i++;
+        setTimeout(showNextLine, 1500);
+      } else {
+        proceedBtn.style.display = "inline-block";
+      }
+    }
+
+    showNextLine();
+  </script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Your Letter</title>
+  <style>
+    body {
+      margin: 0;
+      background: #f5f0ea;
+      font-family: 'Georgia', serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    #envelope {
+      width: 300px;
+      height: 200px;
+      background: #fff;
+      border: 2px solid #d3a97c;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    #envelope::before {
+      content: "";
+      position: absolute;
+      top: -20px;
+      left: 0;
+      width: 100%;
+      height: 20px;
+      background: #d3a97c;
+      clip-path: polygon(50% 100%, 0 0, 100% 0);
+    }
+
+    #letter {
+      display: none;
+      max-width: 500px;
+      margin-top: 30px;
+      background: #fff;
+      padding: 20px;
+      border: 1px solid #d3a97c;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      font-size: 1.1rem;
+      line-height: 1.7;
+      animation: fadeIn 1s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    h2 {
+      color: #a5643f;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      background-color: #d3a97c;
+      border: none;
+      color: white;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="envelope" onclick="openLetter()">
+    <p style="margin-top: 85px; color: #a5643f; font-weight: bold;">Tap to open your letter ✉️</p>
+  </div>
+
+  <div id="letter">
+    <h2>Dear Afreen Shazana,</h2>
+    <p>
+      I don’t know how to explain it, but your presence brings calm to my storm.<br><br>
+      You’re not just beautiful — you're gentle, you're pure, you're strong.<br><br>
+      This is not about the world or noise. This is about you, me, and the moment Allah let our paths cross.<br><br>
+      If this letter made you smile even for a second... then I’ve already succeeded. 🌸
+    </p>
+    <button onclick="window.location.href='dua.html'">Proceed to Dua 🤲</button>
+  </div>
+
+  <script>
+    function openLetter() {
+      document.getElementById("letter").style.display = "block";
+      document.getElementById("envelope").style.display = "none";
+    }
+  </script>
+
+</body>
+</html>

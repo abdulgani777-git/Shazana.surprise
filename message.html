@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>A Message for You</title>
+  <style>
+    body {
+      background-color: #0f0f0f;
+      color: #00ffcc;
+      font-family: 'Courier New', Courier, monospace;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      padding: 30px;
+      text-align: left;
+    }
+    #message {
+      font-size: 1.2rem;
+      max-width: 600px;
+      white-space: pre-wrap;
+      line-height: 1.6;
+    }
+    .cursor {
+      display: inline-block;
+      background-color: #00ffcc;
+      width: 8px;
+      height: 20px;
+      animation: blink 0.8s infinite;
+    }
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      51%, 100% { opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div id="message"></div><div class="cursor"></div>
+
+  <script>
+    const fullText = 
+`To Afreen Shazana 🌸
+
+They say beauty lies in the eyes of the beholder,
+But your beauty speaks for itself — inside and out.
+
+This is not just a birthday wish.
+It’s a reminder of how special you truly are.
+
+May every smile of yours be protected,
+Every tear caught by the One who created you.
+
+Scroll down when you're ready for the next surprise...`;
+
+    const messageDiv = document.getElementById("message");
+    let index = 0;
+
+    function typeWriter() {
+      if (index < fullText.length) {
+        messageDiv.innerText += fullText.charAt(index);
+        index++;
+        setTimeout(typeWriter, 40);
+      }
+    }
+
+    typeWriter();
+  </script>
+</body>
+</html>
